@@ -46,15 +46,34 @@ h2 {
   text-transform: uppercase;
 }
 
+.catalog-disclosure,
 .rule-category {
   border: 1px solid #5b4937;
   margin-bottom: 1rem;
   padding: 1rem;
 }
 
-.rule-category h3 {
+.catalog-disclosure > summary,
+.rule-category > summary {
   color: #e5b86b;
-  margin: 0 0 .75rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.catalog-disclosure > summary {
+  font-size: 1.25rem;
+}
+
+.catalog-content {
+  margin-top: 1rem;
+}
+
+.rule-category {
+  margin-bottom: .75rem;
+}
+
+.rule-category > summary {
+  margin-bottom: .75rem;
 }
 
 .rule-list {
@@ -122,4 +141,14 @@ button:hover {
 
 .result ul {
   padding-left: 1.25rem;
+}
+
+.result li {
+  display: grid;
+  gap: .25rem;
+  margin-bottom: .75rem;
+}
+
+.result li span {
+  color: #c8ba9d;
 }

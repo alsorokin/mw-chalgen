@@ -21,10 +21,46 @@ test("validates catalog conflicts are known and symmetric", () => {
   );
 });
 
-test("generates an exact-size compatible ruleset", () => {
-  const ruleset = generateRuleset(challengeRules, 5, noRandomness);
+test("provides narrative rules across the planned categories", () => {
+  const categories = new Set(challengeRules.map((rule) => rule.category));
 
-  assert.equal(ruleset.length, 5);
+  for (const category of [
+    "Combat",
+    "Survival",
+    "Magic",
+    "Economy",
+    "Progression",
+    "Factions",
+    "World",
+  ]) {
+    assert.ok(categories.has(category), `missing ${category} rules`);
+  }
+
+  assert.ok(challengeRules.length >= 19);
+  assert.ok(challengeRules.every((rule) => rule.title.split(" ").length >= 2));
+  assert.ok(challengeRules.every((rule) => rule.description.includes(". ")));
+  assert.equal(challengeRules.some((rule) => rule.id === "one-great-house"), false);
+  assert.equal(challengeRules.some((rule) => rule.id === "no-stealth"), false);
+  assert.equal(challengeRules.some((rule) => rule.id === "no-spear"), false);
+});
+
+test("declares the narrative rule conflicts symmetrically", () => {
+  const rulesById = new Map(challengeRules.map((rule) => [rule.id, rule]));
+
+  for (const [leftId, rightId] of [
+    ["no-resting", "rest-only-leveling"],
+    ["no-potions", "alchemy-only-healing"],
+    ["no-potion-crafting", "alchemy-only-healing"],
+  ]) {
+    assert.ok(rulesById.get(leftId).incompatibleWith.includes(rightId));
+    assert.ok(rulesById.get(rightId).incompatibleWith.includes(leftId));
+  }
+});
+
+test("generates an exact-size compatible ruleset", () => {
+  const ruleset = generateRuleset(challengeRules, 12, noRandomness);
+
+  assert.equal(ruleset.length, 12);
   for (const rule of ruleset) {
     assert.ok(areCompatible(rule, ruleset.filter((otherRule) => otherRule.id !== rule.id)));
   }

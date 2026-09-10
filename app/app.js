@@ -16,9 +16,10 @@ function groupRulesByCategory(rules) {
 function renderCatalog() {
   const fragment = document.createDocumentFragment();
   for (const [category, rules] of groupRulesByCategory(challengeRules)) {
-    const section = document.createElement("section");
+    const section = document.createElement("details");
     section.className = "rule-category";
-    const title = document.createElement("h3");
+    section.open = true;
+    const title = document.createElement("summary");
     title.textContent = category;
     const list = document.createElement("div");
     list.className = "rule-list";
@@ -61,7 +62,11 @@ function showRuleset(rules) {
   const list = document.createElement("ul");
   for (const rule of rules) {
     const item = document.createElement("li");
-    item.textContent = rule.title;
+    const title = document.createElement("strong");
+    title.textContent = rule.title;
+    const description = document.createElement("span");
+    description.textContent = rule.description;
+    item.append(title, description);
     list.append(item);
   }
   resultElement.append(heading, list);

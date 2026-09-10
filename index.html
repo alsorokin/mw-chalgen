@@ -15,13 +15,13 @@
       </header>
 
       <form id="challenge-form" novalidate>
-        <section aria-labelledby="catalog-heading">
-          <div class="section-heading">
-            <h2 id="catalog-heading">Challenge rules</h2>
-            <p>Disable any rules you do not want considered.</p>
+        <details class="catalog-disclosure">
+          <summary>Configure challenge rules</summary>
+          <div class="catalog-content">
+            <p>Expand a category to disable any rules you do not want considered.</p>
+            <div id="rule-catalog"></div>
           </div>
-          <div id="rule-catalog"></div>
-        </section>
+        </details>
 
         <section class="generation-controls" aria-labelledby="generation-heading">
           <h2 id="generation-heading">Generate</h2>
