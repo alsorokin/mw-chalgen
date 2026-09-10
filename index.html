@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morrowind Challenge Generator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header>
+        <p class="eyebrow">The Elder Scrolls III</p>
+        <h1>Morrowind Challenge Generator</h1>
+        <p>Build a fresh playthrough by choosing the rules you want in the pool.</p>
+      </header>
+
+      <form id="challenge-form" novalidate>
+        <section aria-labelledby="catalog-heading">
+          <div class="section-heading">
+            <h2 id="catalog-heading">Challenge rules</h2>
+            <p>Disable any rules you do not want considered.</p>
+          </div>
+          <div id="rule-catalog"></div>
+        </section>
+
+        <section class="generation-controls" aria-labelledby="generation-heading">
+          <h2 id="generation-heading">Generate</h2>
+          <label for="rule-count">Rules in this challenge</label>
+          <input id="rule-count" name="rule-count" type="number" min="1" value="4" required>
+          <button type="submit">Generate challenge</button>
+        </section>
+      </form>
+
+      <section id="result" class="result" aria-live="polite" aria-atomic="true"></section>
+    </main>
+    <script type="module" src="app/app.js"></script>
+  </body>
+</html>

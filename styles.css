@@ -1,0 +1,125 @@
+:root {
+  color: #f7e8c0;
+  background: #17130f;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page-shell {
+  width: min(100% - 2rem, 62rem);
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+header,
+section {
+  margin-bottom: 2rem;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: .5rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+h2 {
+  color: #e5b86b;
+}
+
+.eyebrow {
+  color: #d49a4a;
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.rule-category {
+  border: 1px solid #5b4937;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.rule-category h3 {
+  color: #e5b86b;
+  margin: 0 0 .75rem;
+}
+
+.rule-list {
+  display: grid;
+  gap: .75rem;
+}
+
+.rule-control {
+  align-items: flex-start;
+  display: flex;
+  gap: .6rem;
+}
+
+.rule-control input {
+  margin-top: .25rem;
+}
+
+.rule-control span {
+  display: grid;
+  gap: .2rem;
+}
+
+.rule-control small {
+  color: #c8ba9d;
+}
+
+.generation-controls {
+  display: grid;
+  gap: .7rem;
+  max-width: 24rem;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  padding: .5rem;
+}
+
+button {
+  background: #a85c2a;
+  border: 1px solid #e5b86b;
+  color: #fff8e7;
+  cursor: pointer;
+  font-weight: bold;
+  padding: .65rem 1rem;
+}
+
+button:hover {
+  background: #c76f35;
+}
+
+.result {
+  border-left: 4px solid #e5b86b;
+  min-height: 1.5rem;
+  padding-left: 1rem;
+}
+
+.result--error {
+  border-color: #e07463;
+  color: #ffd3c9;
+}
+
+.result ul {
+  padding-left: 1.25rem;
+}
